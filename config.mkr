@@ -1,0 +1,8 @@
+cxxFlags = -I. -std=c++17 -Wall -Wextra;
+
+# Modules    Type    Name        Deps   Flags  #
+################################################
+$(call       exec,   sort      , catch,       );
+$(call       exec,   memoize   , catch,       );
+$(call       exec,   lru_cache , catch,       );
+$(call       slib,   catch     ,      ,       );
