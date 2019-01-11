@@ -19,7 +19,13 @@ unsigned long fib(unsigned int n) {
 
 // Recursive (with memoization) solution.
 
-unsigned long fib_recur(unsigned int n, unsigned long cache[]) {
+unsigned long fib_recur(unsigned int n, unsigned long cache[] = nullptr) {
+  if (cache == nullptr) {
+    unsigned long array[n+1];
+    for (unsigned int i=0; i<n; i++) array[i] = 0;
+    return fib_recur(n, array);
+  }
+
   auto recur = [&](auto num) {
     return !cache[num]
       ? cache[num] = fib_recur(num, cache)
@@ -29,12 +35,6 @@ unsigned long fib_recur(unsigned int n, unsigned long cache[]) {
   if (n == 0) return 0;
   else if (n <= 2) return 1;
   else return recur(n-1) + recur(n-2);
-}
-
-unsigned long fib_recur(unsigned int n) {
-  unsigned long cache[n+1];
-  for(unsigned int i=0; i<=n; i++) cache[i] = 0;
-  return fib_recur(n, cache);
 }
 
 } // namespace jander
