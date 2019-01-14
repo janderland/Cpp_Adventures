@@ -1,5 +1,6 @@
 #include "insert.hpp"
 #include "merge.hpp"
+#include "quick.hpp"
 #include "catch/catch.hpp"
 #include <algorithm>
 #include <array>
@@ -22,6 +23,16 @@ TEST_CASE("Insert Sort (in-place)") {
   REQUIRE(output == sorted);
 }
 
-TEST_CASE("Merge Sort (vector recursive)") {
+TEST_CASE("Merge Sort") {
   REQUIRE(jander::merge_sort(unsorted) == sorted);
+}
+
+TEST_CASE("Quick Sort") {
+  int unsorted_arr[size];
+  std::copy(unsorted.begin(), unsorted.end(), unsorted_arr);
+
+  jander::quick_sort(unsorted_arr, 0, size);
+
+  std::vector<int> output(unsorted_arr, unsorted_arr+size);
+  REQUIRE(output == sorted);
 }
