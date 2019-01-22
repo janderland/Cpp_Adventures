@@ -21,7 +21,12 @@ std::vector<std::vector<unsigned int>> vector4 = {
   {4, 4, 4, 4, 4, 4, 4},
 };
 
-TEST_CASE("Pretty print") {
-  REQUIRE(jander::prettyprint(3) == vector3);
-  REQUIRE(jander::prettyprint(4) == vector4);
+TEST_CASE("Pretty print (simple)") {
+  REQUIRE(jander::prettyprint_simple(3) == vector3);
+  REQUIRE(jander::prettyprint_simple(4) == vector4);
+}
+
+TEST_CASE("Pretty print (parameterized)") {
+  REQUIRE(jander::prettyprint_param(3) == vector3);
+  REQUIRE(jander::prettyprint_param(4) == vector4);
 }
