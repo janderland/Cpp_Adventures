@@ -5,4 +5,5 @@ cxxFlags = -I. -std=c++17 -Wall -Wextra;
 $(call       exec,   sort      , catch,       );
 $(call       exec,   memoize   , catch,       );
 $(call       exec,   lru_cache , catch,       );
+$(call       exec,   array     , catch,       );
 $(call       slib,   catch     ,      ,       );
