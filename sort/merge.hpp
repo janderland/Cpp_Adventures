@@ -20,10 +20,8 @@ std::vector<int> merge_sort(const std::vector<int>& unsorted) {
   auto iter2 = sorted2.begin();
 
   while(iter1 != sorted1.end() && iter2 != sorted2.end())
-    if (*iter1 < *iter2)
-      sorted.push_back(*iter1++);
-    else
-      sorted.push_back(*iter2++);
+    if (*iter1 < *iter2) sorted.push_back(*iter1++);
+    else sorted.push_back(*iter2++);
 
   while (iter1 != sorted1.end())
     sorted.push_back(*iter1++);

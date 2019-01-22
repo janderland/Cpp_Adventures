@@ -16,7 +16,7 @@ namespace jander {
     for (int value : unsorted) {
       auto location = sorted.end();
 
-      for (unsigned int i=0; i<sorted.size(); i++) {
+      for (size_t i=0; i<sorted.size(); i++) {
         if (sorted[i] > value) {
           location = sorted.insert(sorted.begin()+i, value);
           break;
@@ -43,14 +43,14 @@ namespace jander {
   // moved up an index. This continues until the entire array
   // is sorted.
 
-  void insert_sort(int array[], unsigned int size) {
+  void insert_sort(int array[], int size) {
     using std::swap;
-    unsigned int boundary = 1;
+    int boundary = 1;
 
     while (boundary < size) {
       auto value = array[boundary];
 
-      for (unsigned int i=0; i<boundary; i++)
+      for (int i=0; i<boundary; i++)
         if (array[i] > value) swap(array[i], value);
 
       array[boundary] = value;
