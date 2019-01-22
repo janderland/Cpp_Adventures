@@ -4,13 +4,13 @@ namespace jander {
 
 // Bottom-up solution.
 
-unsigned long fib(unsigned int n) {
-  unsigned long fibs[n+1];
+long fib(int n) {
+  long fibs[n+1];
   fibs[0] = 0;
   fibs[1] = 1;
   fibs[2] = 1;
 
-  for(unsigned int i=3; i<=n; i++)
+  for(int i=3; i<=n; i++)
     fibs[i] = fibs[i-1] + fibs[i-2];
 
   return fibs[n];
@@ -19,10 +19,10 @@ unsigned long fib(unsigned int n) {
 
 // Recursive (with memoization) solution.
 
-unsigned long fib_recur(unsigned int n, unsigned long cache[] = nullptr) {
+long fib_recur(int n, long cache[] = nullptr) {
   if (cache == nullptr) {
-    unsigned long array[n+1];
-    for (unsigned int i=0; i<n; i++) array[i] = 0;
+    long array[n+1];
+    for (int i=0; i<n; i++) array[i] = 0;
     return fib_recur(n, array);
   }
 
