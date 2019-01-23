@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <array>
 
-std::vector<std::vector<unsigned int>> vector3 = {
+std::vector<std::vector<int>> vector3 = {
   {3, 3, 3, 3, 3},
   {3, 2, 2, 2, 3},
   {3, 2, 1, 2, 3},
@@ -11,7 +11,7 @@ std::vector<std::vector<unsigned int>> vector3 = {
   {3, 3, 3, 3, 3},
 };
 
-std::vector<std::vector<unsigned int>> vector4 = {
+std::vector<std::vector<int>> vector4 = {
   {4, 4, 4, 4, 4, 4, 4},
   {4, 3, 3, 3, 3, 3, 4},
   {4, 3, 2, 2, 2, 3, 4},
