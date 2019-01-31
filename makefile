@@ -154,7 +154,7 @@ debug=$(if $(verbose),$(info $1))
 
 # Check Path Exists
 # 1 - Input path
-checkPathExists=$(if $(shell test -d $1 && echo true),,$(error $1 isn\'t a directory))
+checkPathExists=$(if $(shell test -d $1 && echo true),,$(error $1 isn't a directory))
 
 
 # Check Path For 'At' Symbol ('@' isn't allowed in Maker paths)
