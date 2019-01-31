@@ -23,12 +23,9 @@ class LRUCache {
   std::list<Id> priorityList;
 
 public:
-  LRUCache(Size maxSize);
-
+  LRUCache(Size maxSize): maxSize(maxSize) {}
   bool put(Id id, Value value);
-
   Value get(Id id);
-
   std::list<Value> getAll();
 };
 

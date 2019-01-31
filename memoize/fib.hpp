@@ -1,5 +1,8 @@
 #pragma once
 
+#include <algorithm>
+#include <functional>
+
 namespace jander {
 
 // Bottom-up solution.
@@ -19,13 +22,7 @@ long fib(int n) {
 
 // Recursive (with memoization) solution.
 
-long fib_recur(int n, long cache[] = nullptr) {
-  if (cache == nullptr) {
-    long array[n+1];
-    for (int i=0; i<n; i++) array[i] = 0;
-    return fib_recur(n, array);
-  }
-
+long fib_recur(int n, long cache[]) {
   auto recur = [&](auto num) {
     return !cache[num]
       ? cache[num] = fib_recur(num, cache)
@@ -33,8 +30,14 @@ long fib_recur(int n, long cache[] = nullptr) {
   };
 
   if (n == 0) return 0;
-  else if (n <= 2) return 1;
-  else return recur(n-1) + recur(n-2);
+  if (n <= 2) return 1;
+  return recur(n-1) + recur(n-2);
+}
+
+long fib_recur(int n) {
+  long array[n+1];
+  std::fill(array, array+n+1, 0);
+  return fib_recur(n, array);
 }
 
 } // namespace jander

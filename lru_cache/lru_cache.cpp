@@ -3,9 +3,6 @@
 
 namespace jander {
 
-LRUCache::LRUCache(unsigned int maxSize):
-  maxSize(maxSize) {}
-
 bool LRUCache::put(Id id, Value value) {
   if (value.length() > maxSize) {
     return false;
