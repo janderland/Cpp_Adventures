@@ -3,18 +3,20 @@
 #include <algorithm>
 #include <vector>
 
+using std::vector;
+
 namespace jander {
 
-std::vector<int> merge_sort(const std::vector<int>& unsorted) {
+vector<int> merge_sort(const vector<int>& unsorted) {
   if (unsorted.size() < 2) return unsorted;
 
-  const std::vector<int>
+  const vector<int>
     unsorted1(unsorted.begin(), unsorted.begin() + unsorted.size()/2),
     unsorted2(unsorted.begin() + unsorted.size()/2, unsorted.end());
 
   const auto sorted1 = merge_sort(unsorted1);
   const auto sorted2 = merge_sort(unsorted2);
-  std::vector<int> sorted;
+  vector<int> sorted;
 
   auto iter1 = sorted1.begin();
   auto iter2 = sorted2.begin();

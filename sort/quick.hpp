@@ -2,6 +2,8 @@
 
 #include <utility>
 
+using std::swap;
+
 namespace jander {
 
 void quick_sort(int array[], size_t begin, size_t end) {
@@ -12,9 +14,9 @@ void quick_sort(int array[], size_t begin, size_t end) {
 
   for (auto i=begin; i<end; i++)
     if (array[i] < array[pivot_i])
-      std::swap(array[i], array[swap_i++]);
+      swap(array[i], array[swap_i++]);
 
-  std::swap(array[pivot_i], array[swap_i]);
+  swap(array[pivot_i], array[swap_i]);
   pivot_i = swap_i;
 
   quick_sort(array, begin, pivot_i);

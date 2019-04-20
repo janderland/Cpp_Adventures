@@ -3,6 +3,9 @@
 #include <utility>
 #include <vector>
 
+using std::vector;
+using std::swap;
+
 namespace jander {
 
   // This version of Insert Sort is very simple. We have two arrays,
@@ -10,8 +13,8 @@ namespace jander {
   // empty). One by one, we grab a value from the unsorted array
   // and insert it into the sorted array at it's appropriate index.
 
-  std::vector<int> insert_sort(const std::vector<int>& unsorted) {
-    std::vector<int> sorted;
+  vector<int> insert_sort(const vector<int>& unsorted) {
+    vector<int> sorted;
 
     for (int value : unsorted) {
       auto location = sorted.end();
@@ -44,7 +47,6 @@ namespace jander {
   // is sorted.
 
   void insert_sort(int array[], int size) {
-    using std::swap;
     int boundary = 1;
 
     while (boundary < size) {

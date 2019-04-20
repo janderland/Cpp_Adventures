@@ -11,7 +11,7 @@ bool LRUCache::put(Id id, Value value) {
     if (!values.empty()) {
       while (currentSize + value.length() > maxSize) {
         const auto& idToRemove = priorityList.back();
-        const auto& [valueToRemove, it] = values.at(idToRemove);
+        const auto& [valueToRemove, priority] = values.at(idToRemove);
 
         currentSize -= valueToRemove.length();
 
@@ -28,16 +28,17 @@ bool LRUCache::put(Id id, Value value) {
 }
 
 LRUCache::Value LRUCache::get(Id id) {
-  const auto& [value, it] = values.at(id);
-  priorityList.push_front(*it);
-  priorityList.erase(it);
-  return value;
+  auto& entry = values.at(id);
+  priorityList.erase(entry.priority);
+  priorityList.push_front(id);
+  entry.priority = priorityList.begin();
+  return entry.value;
 }
 
-std::list<LRUCache::Value> LRUCache::getAll() {
+list<LRUCache::Value> LRUCache::getAll() {
   std::list<Value> allValues;
   for (const Id& id : priorityList) {
-    const auto& [value, it] = values.at(id);
+    const auto& [value, priority] = values.at(id);
     allValues.push_back(value);
   }
   return allValues;

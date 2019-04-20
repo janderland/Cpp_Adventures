@@ -2,14 +2,14 @@
 #include <utility>
 #include <iostream>
 
+template<class T> using vec = std::vector<T>;
 using std::max;
-using std::vector;
 
 namespace jander {
 
-vector<vector<int>> prettyprint_simple(int A) {
+vec<vec<int>> prettyprint_simple(int A) {
   int size = (2*A)-1;
-  vector<vector<int>> array(size, vector<int>(size));
+  vec<vec<int>> array(size, vec<int>(size));
 
   for(int i=0; i<A; i++)
     for(int x=i; x<size-i; x++)
@@ -20,8 +20,8 @@ vector<vector<int>> prettyprint_simple(int A) {
 }
 
 
-vector<vector<int>> prettyprint_param(int A) {
-  vector<vector<int>> array;
+vec<vec<int>> prettyprint_param(int A) {
+  vec<vec<int>> array;
 
   auto set = [&](int i, int j) {
     array.back().push_back(max(A-i, A-j));
@@ -29,14 +29,14 @@ vector<vector<int>> prettyprint_param(int A) {
 
   for(int i=0; i<=A-1; i++) {
     array.push_back({});
-    for(int j=0; j<=A-1; j++) set(i, j);
-    for(int j=A-2; j>=0; j--) set(i, j);
+    for(int j=0; j<=A-1; j++) set(i,j);
+    for(int j=A-2; j>=0; j--) set(i,j);
   }
 
   for(int i=A-2; i>=0; i--) {
     array.push_back({});
-    for(int j=0; j<=A-1; j++) set(i, j);
-    for(int j=A-2; j>=0; j--) set(i, j);
+    for(int j=0; j<=A-1; j++) set(i,j);
+    for(int j=A-2; j>=0; j--) set(i,j);
   }
 
   return array;

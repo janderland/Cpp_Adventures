@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <functional>
 
+using std::fill;
+
 namespace jander {
 
 // Bottom-up solution.
@@ -36,7 +38,7 @@ long fib_recur(int n, long cache[]) {
 
 long fib_recur(int n) {
   long array[n+1];
-  std::fill(array, array+n+1, 0);
+  fill(array, array+n+1, 0);
   return fib_recur(n, array);
 }
 

@@ -1,6 +1,5 @@
 namespace jander {
 
-
 int divide(int lower, int upper, int num, int denom) {
   auto quotient = (lower + upper) >> 1;
   auto num_ = quotient * denom;
